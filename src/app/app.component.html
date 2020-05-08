@@ -1,4 +1,26 @@
 <app-header>
+    <div class = "tp-container">
+        <mat-form-field appearance = "standard">
+          <mat-label>Please Enter Name</mat-label>
+           <input matInput placeholder = "John Doe" [formControl]="name" required>
+           <mat-error *ngIf="name.invalid">{{getErrorText()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance = "fill">
+           <textarea matInput placeholder = "Textarea"></textarea>
+        </mat-form-field>
+       <mat-form-field appearance = "outline">
+           <mat-select placeholder = "Select">
+              <mat-option value = "A">A</mat-option>
+              <mat-option value = "B">B</mat-option>
+              <mat-option value = "C">C</mat-option>      
+           </mat-select>
+        </mat-form-field>
+     </div>
 <section>
   <div class="example-label">Raised</div>
   <div class="example-button-row">

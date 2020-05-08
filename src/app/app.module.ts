@@ -7,7 +7,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, } from '@angular/material';
+import {MatInputModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +18,11 @@ import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from
     HeaderComponent
   ],
   imports: [
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
