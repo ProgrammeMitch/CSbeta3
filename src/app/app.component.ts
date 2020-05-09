@@ -1,14 +1,28 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   name = new FormControl('', [Validators.required]);
+  Phone = new FormControl('', [Validators.required]);
+  address = new FormControl('');
+  rooms = new FormControl('');
+  Register: FormGroup;
+
+  ngOnInit() {
+    this.Register = new FormGroup({
+      'email': new FormControl('', [Validators.required, Validators.email]),
+      'name': new FormControl('', [Validators.required]),
+      'Phone': new FormControl('', [Validators.required]),
+      'address': new FormControl(''),
+      'rooms': new FormControl('')
+    });
+  }
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
@@ -23,6 +37,18 @@ export class AppComponent {
       return 'You must enter a value';
     }
 
-    return this.name.hasError('email') ? 'This is not a valid' : '';
+    return this.name.hasError('name') ? 'This is not a valid' : '';
+  }
+
+    getPhoneError() {
+    if (this.Phone.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.Phone.hasError('Phone') ? 'This is not a valid' : '';
+  }
+
+  onSubmit() {
+    console.log(this.email, this.name);
   }
 }

@@ -1,35 +1,36 @@
 <app-header>
+  <form [formGroup]="Register" (ngSubmit)="onSubmit()">
     <div class = "tp-container">
         <mat-form-field appearance = "standard">
           <mat-label>Please Enter Name</mat-label>
            <input matInput placeholder = "John Doe" [formControl]="name" required>
            <mat-error *ngIf="name.invalid">{{getErrorText()}}</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="standard">
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="Phone" required>
+          <mat-error *ngIf="Phone.invalid">{{getPhoneError()}}</mat-error>
+      </mat-form-field>
+        <mat-form-field appearance="standard">
             <mat-label>Enter your email</mat-label>
             <input matInput placeholder="pat@example.com" [formControl]="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
-        <mat-form-field appearance = "fill">
-           <textarea matInput placeholder = "Textarea"></textarea>
+        <mat-form-field appearance = "standard">
+          <mat-label>Address</mat-label>
+          <textarea matInput [formControl]="address" placeholder = "Please Enter Address for our Services"></textarea>
         </mat-form-field>
-       <mat-form-field appearance = "outline">
-           <mat-select placeholder = "Select">
-              <mat-option value = "A">A</mat-option>
-              <mat-option value = "B">B</mat-option>
-              <mat-option value = "C">C</mat-option>      
+       <mat-form-field appearance = "standard">
+           <mat-select [formControl]="roooms" placeholder = "How many rooms?">
+              <mat-option value = "A">Sitting Room</mat-option>
+              <mat-option value = "B">Sitting Room and 1</mat-option>
+              <mat-option value = "C">Sitting Room and more</mat-option>    
+              <mat-option value = "D">Bed Room and more</mat-option>  
+              <mat-option value = "E">Bed Room and 1</mat-option>
+              <mat-option value = "F">Bed Room</mat-option>
            </mat-select>
         </mat-form-field>
+        <button mat-raised-button color="accent" type="submit">Request!</button>
      </div>
-<section>
-  <div class="example-label">Raised</div>
-  <div class="example-button-row">
-    <button mat-raised-button>Basic</button>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
-    <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
-</section>
+  </form>
 </app-header>
