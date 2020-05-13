@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { FormControl, Validators, FormGroup, NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +8,27 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  constructor(private _snackBar: MatSnackBar) {
+
+  }
+
+  confirmation = 'YOU WILL BE CONTACTED SOON. THANK YOU';
   email = new FormControl('', [Validators.required, Validators.email]);
   name = new FormControl('', [Validators.required]);
-  Phone = new FormControl('', [Validators.required]);
+  phone = new FormControl('', [Validators.required]);
   address = new FormControl('');
   rooms = new FormControl('');
+  number = new FormControl('');
   Register: FormGroup;
 
   ngOnInit() {
     this.Register = new FormGroup({
       'email': new FormControl('', [Validators.required, Validators.email]),
       'name': new FormControl('', [Validators.required]),
-      'Phone': new FormControl('', [Validators.required]),
       'address': new FormControl(''),
-      'rooms': new FormControl('')
+      'rooms': new FormControl(''),
+      'number': new FormControl('')
     });
   }
 
@@ -41,21 +49,32 @@ export class AppComponent implements OnInit {
   }
 
     getPhoneError() {
-    if (this.Phone.hasError('required')) {
+    if (this.phone.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.Phone.hasError('Phone') ? 'This is not a valid' : '';
+    return this.phone.hasError('Phone') ? 'This is not a valid' : '';
   }
 
-  onSubmit() {
+  onSubmit( f: NgForm) {
     this.Register.patchValue({
       name: this.name.value,
       email: this.email.value,
       address: this.address.value,
-      Phone: this.Phone.value,
-      rooms: this.rooms.value
+      rooms: this.rooms.value,
+      number: this.number.value
     });
+
+    this.email.reset();
     console.log(this.Register);
   }
+
+  snackBarConfirmation(data: string, action: string) {
+    data = this.confirmation;
+    action = 'OK';
+    this._snackBar.open(data, action, {
+      duration: 10000
+    });
+  }
 }
+

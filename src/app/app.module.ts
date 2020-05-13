@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatSnackBarModule } from '@angular/material';
 import { MatInputModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent
   ],
   imports: [
+    MatSnackBarModule,
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
