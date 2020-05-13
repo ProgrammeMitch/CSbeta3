@@ -1,5 +1,5 @@
 <app-header>
-  <form [formGroup]="Register" (ngSubmit)="onSubmit()">
+  <form [formGroup]="Register" (ngSubmit)="onSubmit($event)">
     <div class = "tp-container">
         <mat-form-field appearance = "standard">
           <mat-label>Please Enter Name</mat-label>
@@ -21,7 +21,7 @@
           <textarea matInput [formControl]="address" placeholder = "Please Enter Address for our Services"></textarea>
         </mat-form-field>
        <mat-form-field appearance = "standard">
-           <mat-select [formControl]="roooms" placeholder = "How many rooms?">
+           <mat-select [formControl]="rooms" placeholder = "How many rooms?">
               <mat-option value = "A">Sitting Room</mat-option>
               <mat-option value = "B">Sitting Room and 1</mat-option>
               <mat-option value = "C">Sitting Room and more</mat-option>    

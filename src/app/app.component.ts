@@ -49,6 +49,13 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.email, this.name);
+    this.Register.patchValue({
+      name: this.name.value,
+      email: this.email.value,
+      address: this.address.value,
+      Phone: this.Phone.value,
+      rooms: this.rooms.value
+    });
+    console.log(this.Register);
   }
 }
