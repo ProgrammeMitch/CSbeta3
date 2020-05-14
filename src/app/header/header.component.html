@@ -8,9 +8,8 @@
     [opened]="!(isHandset | async)!.matches">
     <mat-toolbar color="accent">SSC</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Home</a>
-      <a mat-list-item href="#">About Us</a>
-      <a mat-list-item href="#"></a>
+      <a mat-list-item [routerLink]="['/home']">Home</a>
+      <a mat-list-item [routerLink]="['/about']">About Us</a> 
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
