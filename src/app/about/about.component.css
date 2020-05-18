@@ -1,0 +1,9 @@
+mat-card {
+    padding: 5px;
+  }
+
+h1 {
+  text-align: center;
+  color: palevioletred;
+  border: 2px 2px;
+}

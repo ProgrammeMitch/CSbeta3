@@ -7,9 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatSnackBarModule } from '@angular/material';
-import { MatInputModule, MatOptionModule, MatSelectModule } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatSnackBarModule, MatCheckboxModule } from '@angular/material';
+import { MatInputModule, MatOptionModule, MatSelectModule, MatGridListModule, MatCardModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
@@ -29,6 +29,9 @@ const appRoutes:  Routes = [
     AboutComponent
   ],
   imports: [
+    MatCardModule,
+    MatCardModule,
+    MatGridListModule,
     MatSnackBarModule,
     MatInputModule,
     MatOptionModule,
