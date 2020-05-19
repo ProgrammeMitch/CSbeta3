@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
 import { Routes, RouterModule } from '@angular/router';
+
+import { CustomerData } from './customer.service';
 
 const appRoutes:  Routes = [
   { path: '', component: HomeComponent},
@@ -47,9 +50,10 @@ const appRoutes:  Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [CustomerData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

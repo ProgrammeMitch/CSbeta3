@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { FormControl, Validators, FormGroup, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
+import { CustomerData } from '../customer.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar) {
+  constructor(private _snackBar: MatSnackBar, private customerData: CustomerData) {
 
   }
 
@@ -97,6 +98,12 @@ export class HomeComponent implements OnInit {
     this.bottom.reset();
     this.other.reset();
     console.log(this.Register);
+
+    this.customerData.addData(this.Register)
+    .subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
   snackBarConfirmation(data: string, action: string) {

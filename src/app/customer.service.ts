@@ -1,19 +1,12 @@
-export class CustomerData {
-    data = [{
-        name: 'somr',
-        phone: '',
-        email: '',
-        address: '',
-        rooms: ''
-    }];
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { FormGroup } from '@angular/forms';
 
-    addData(name: string, phone: string, email: string, address: string, rooms: string) {
-        this.data.push({
-                name: name,
-                phone: phone,
-                email: email,
-                address: address,
-                rooms: rooms
-        });
+@Injectable()
+export class CustomerData {
+    constructor(private http: Http) {}
+    addData(data: FormGroup) {
+        const jsonDataFormat = JSON.stringify(data.value);
+        return this.http.post('https://sharon-s-services.firebaseio.com/data.json', jsonDataFormat);
     }
 }
