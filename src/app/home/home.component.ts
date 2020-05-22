@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { CustomerData } from '../customer.service';
@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   }
 
+  disabledAgreement = true;
   confirmation = 'YOU WILL BE CONTACTED SOON. THANK YOU';
   toggleBool: boolean;
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -112,5 +113,9 @@ export class HomeComponent implements OnInit {
     this._snackBar.open(data, action, {
       duration: 10000
     });
+  }
+
+  changeCheck(event) {
+    this.disabledAgreement = !event.target.checked;
   }
 }

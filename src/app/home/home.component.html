@@ -64,11 +64,11 @@
                   </mat-form-field>
                </div>
                <span class="col">
-                  <input type="checkbox" >Do you agree with our terms.
+                  <input type="checkbox" (change)="changeCheck($event)">Do you agree with our terms.
                </span>
 
                <button class="btn btn-primary" mat-raised-button color="accent" type="submit"
-                  (click)="snackBarConfirmation()" >Request!</button>
+                  (click)="snackBarConfirmation()" [disabled]="disabledAgreement" [routerLink]="['/about']" >Request!</button>
             </div>
          </form>
       </div>
